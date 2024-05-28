@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    return view('addCourse');
-});
+Route::get('/', [CoureseController::class, 'getCourse'])->name('home');
 Route::post('Addcourse', [CoureseController::class, 'createCourse']);
+Route::get('Add', [CoureseController::class, 'viewForm']);
+
+// Route::post('viewcourse', [CoureseController::class, 'createCourse']);

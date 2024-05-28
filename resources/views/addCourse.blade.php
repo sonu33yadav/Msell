@@ -56,6 +56,9 @@
     }
     </style>
 </head>
+@if (session('message'))
+<div class="alert">{{ session('message') }}</div>
+@endif
 
 <body>
     <div class="container">
@@ -64,15 +67,15 @@
             @csrf
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
             </div>
             <div class="form-group">
                 <label for="date_of_birth">Date of Birth</label>
-                <input type="date" class="form-control" id="date_of_birth">
+                <input type="date" class="form-control" id="date_of_birth" name="dob">
             </div>
             <div class="form-group">
                 <label for="education_level">Education Level</label>
-                <select class="form-control" id="education_level" multiple>
+                <select class="form-control" id="education_level" name="education_level[]" multiple>
                     <option value="10th">10th</option>
                     <option value="12th">12th</option>
                     <option value="graduation">Graduation</option>
@@ -82,16 +85,16 @@
             </div>
             <div class="form-group">
                 <label for="course">Course</label>
-                <input type="text" class="form-control" id="course" placeholder="Enter your course">
+                <input type="text" class="form-control" id="course" name="course" placeholder="Enter your course">
             </div>
             <div class="form-group">
                 <label for="course_duration">Course Duration</label>
                 <input type="text" class="form-control" id="course_duration"
-                    placeholder="Enter course duration (e.g., 3 years)">
+                    placeholder="Enter course duration (e.g., 3 years)" name="duration">
             </div>
             <div class="form-group">
                 <label for="course_type">Course Type</label>
-                <select class="form-control" id="course_type">
+                <select class="form-control" id="course_type" name="course_type">
                     <option value="">Select course type</option>
                     <option value="regular">Regular</option>
                     <option value="open">Open</option>
@@ -100,7 +103,7 @@
             </div>
             <div class="form-group">
                 <label for="year_of_completion">Year of Completion</label>
-                <input type="number" class="form-control" id="year_of_completion"
+                <input type="number" class="form-control" id="year_of_completion" name="year_of_completion"
                     placeholder="Enter year of completion">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

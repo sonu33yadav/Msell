@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->date('dob');
-            $table->string('course');
+            $table->text('course');
             $table->string('course_duration');
             $table->string('course_type');
             $table->year('year_of_completion');
